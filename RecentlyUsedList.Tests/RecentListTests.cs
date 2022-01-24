@@ -38,6 +38,18 @@ namespace RecentlyUsedList
 		}
 
 		[Fact]
+		public void Add_EmptyString_ShouldNotBeInserted()
+		{
+			var list = new RecentList();
+
+			list.Add("one");
+			list.Add("");
+
+			Assert.Contains("one", list);
+			Assert.Single(list);
+		}
+
+		[Fact]
 		public void LookUpByIndex_WrongIndex_Exception()
 		{
 			var list = new RecentList() { "one", "two", "three" };
