@@ -29,7 +29,10 @@ namespace RecentlyUsedList
 
 		public void Add(string value)
 		{
-			throw new System.NotImplementedException();
+			if (!_recentlyUsedList.Contains(value))
+			{
+				_recentlyUsedList.Add(value);
+			}
 		}
 
 		public string LookUpByIndex(int index)
