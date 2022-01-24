@@ -23,5 +23,16 @@ namespace RecentlyUsedList
 			Assert.Contains("one", list);
 			Assert.Single(list);
 		}
+
+		[Fact]
+		public void Add_NotUniqueValue_ShouldNotBeInserted()
+		{
+			var list = new RecentList();
+			list.Add("one");
+			list.Add("one");
+
+			Assert.Contains("one", list);
+			Assert.Single(list);
+		}
 	}
 }
