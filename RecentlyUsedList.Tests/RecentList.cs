@@ -1,24 +1,17 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace RecentlyUsedList
 {
 	public class RecentList : IRecentList
 	{
-		private readonly string[] _recentlyUsedList;
-		private static int _maxCapacity = 5;
-		private int _index;
+		private List<string> _recentlyUsedList;
+		private readonly byte _maxCapacity = 5;
 
-		public RecentList() : this(_maxCapacity)
-		{ }
-
-		public RecentList(int maxCapacity)
+		public RecentList()
 		{
-			_maxCapacity = maxCapacity;
-			_recentlyUsedList = new string[_maxCapacity];
-			_index = 0;
+			_recentlyUsedList = new List<string>(_maxCapacity);
 		}
 
 		public IEnumerator<string> GetEnumerator()
@@ -36,37 +29,20 @@ namespace RecentlyUsedList
 
 		public void Add(string value)
 		{
-			if (_index == _maxCapacity)
-			{
-				DropMostLeastItemAndRewriteArray(value);
-			}
-
 			if (string.IsNullOrEmpty(value))
 			{
 				return;
 			}
 
-			if (!_recentlyUsedList.Contains<string>(value))
+			if (!_recentlyUsedList.Contains(value))
 			{
-				_recentlyUsedList[_index] = value;
-				_index++;
+				_recentlyUsedList.Add(value);
 			}
-		}
-
-		private void DropMostLeastItemAndRewriteArray(string value)
-		{
-			for (int i = 0; i < _index - 1; i++)
-			{
-				_recentlyUsedList[i] = _recentlyUsedList[i + 1];
-			}
-
-			_index = _maxCapacity - 1;
-			_recentlyUsedList[_index] = value;
 		}
 
 		public string LookUpByIndex(int index)
 		{
-			if (index < 0 || index >= _recentlyUsedList.Length)
+			if (index < 0 || index >= _recentlyUsedList.Count)
 			{
 				throw new IndexOutOfRangeException("Index should equal or greater 0 and less than max items count");
 			}
