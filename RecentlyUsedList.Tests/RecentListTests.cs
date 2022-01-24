@@ -12,5 +12,14 @@ namespace RecentlyUsedList
 
 			Assert.Empty(list);
 		}
+
+		[Fact]
+		public void Add_UniqueValue_ShouldBeInserted()
+		{
+			var list = new RecentList();
+			list.Add("one");
+
+			Assert.Contains("one", list);
+		}
 	}
 }
