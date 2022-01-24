@@ -50,6 +50,17 @@ namespace RecentlyUsedList
 		}
 
 		[Fact]
+		public void Add_AddMoreThanMaxCapacity_MostLeastItemShouldBeDropped()
+		{
+			var list = new RecentList() { "one", "two", "three", "four", "five" };
+
+			list.Add("six");
+
+			Assert.DoesNotContain("one", list);
+			Assert.Equal(5, list.Count());
+		}
+
+		[Fact]
 		public void LookUpByIndex_WrongIndex_Exception()
 		{
 			var list = new RecentList() { "one", "two", "three" };
