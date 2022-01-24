@@ -37,7 +37,12 @@ namespace RecentlyUsedList
 
 		public string LookUpByIndex(int index)
 		{
-			throw new System.NotImplementedException();
+			if (index < 0 || index >= _recentlyUsedList.Count)
+			{
+				throw new IndexOutOfRangeException("Index should equal or greater 0 and less than max items count");
+			}
+
+			return _recentlyUsedList[index];
 		}
 	}
 }
