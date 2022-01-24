@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using Xunit;
 
 namespace RecentlyUsedList
@@ -20,6 +21,7 @@ namespace RecentlyUsedList
 			list.Add("one");
 
 			Assert.Contains("one", list);
+			Assert.Single(list);
 		}
 	}
 }
