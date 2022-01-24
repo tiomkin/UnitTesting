@@ -5,10 +5,10 @@ namespace RecentlyUsedList
 {
 	public class RecentlyUsedListTests
 	{
-		[Fact(Skip = "Interface not implemented")]
+		[Fact]
 		public void RecentList_InitiallyCreated_IsEmpty()
 		{
-			IRecentList list = null;
+			var list = new RecentList();
 
 			Assert.Empty(list);
 		}
