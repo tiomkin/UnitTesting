@@ -1,6 +1,8 @@
-﻿namespace RecentlyUsedList
+﻿using System.Collections;
+
+namespace RecentlyUsedList
 {
-	public interface IRecentList
+	public interface IRecentList : IEnumerable
 	{
 
 	}
