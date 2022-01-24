@@ -29,6 +29,11 @@ namespace RecentlyUsedList
 
 		public void Add(string value)
 		{
+			if (string.IsNullOrEmpty(value))
+			{
+				return;
+			}
+
 			if (!_recentlyUsedList.Contains(value))
 			{
 				_recentlyUsedList.Add(value);
