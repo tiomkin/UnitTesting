@@ -3,7 +3,7 @@ using Xunit;
 
 namespace RecentlyUsedList
 {
-	public class RecentlyUsedListTests
+	public class RecentListTests
 	{
 		[Fact]
 		public void RecentList_InitiallyCreated_IsEmpty()
