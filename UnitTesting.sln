@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecentlyUsedList.Tests", "RecentlyUsedList.Tests\RecentlyUsedList.Tests.csproj", "{4A6CA805-B5B5-49EA-909C-ACAB140B95BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecentlyUsedList.Tests", "RecentlyUsedList.Tests\RecentlyUsedList.Tests.csproj", "{4A6CA805-B5B5-49EA-909C-ACAB140B95BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LcdDigits.Tests", "LcdDigits.Tests\LcdDigits.Tests.csproj", "{08484055-D93D-4698-923C-9338A34AA8F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4A6CA805-B5B5-49EA-909C-ACAB140B95BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A6CA805-B5B5-49EA-909C-ACAB140B95BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A6CA805-B5B5-49EA-909C-ACAB140B95BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08484055-D93D-4698-923C-9338A34AA8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08484055-D93D-4698-923C-9338A34AA8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08484055-D93D-4698-923C-9338A34AA8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08484055-D93D-4698-923C-9338A34AA8F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
