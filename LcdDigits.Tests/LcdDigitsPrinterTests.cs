@@ -9,10 +9,9 @@ namespace LcdDigits.Tests
 		public void Print_PositiveNumber_PrintWithoutHyphen()
 		{
 			var number = 910;
-			var expected = @"
-			    ._. ... ._.
-				|_| ..| |.|
-				..| ..| |_|";
+			var expected = @"._. ... ._.
+|_| ..| |.|
+..| ..| |_|";
 
 			var printer = new LcdDigitsPrinter();
 
@@ -41,10 +40,9 @@ namespace LcdDigits.Tests
 		public void Print_NegativeNumber_PrintWithHyphen()
 		{
 			var number = -910;
-			var expected = @"
-			  ... ._. ... ._.
-			  ._. |_| ..| |.|
-			  ... ..| ..| |_|";
+			var expected = @"... ._. ... ._.
+._. |_| ..| |.|
+... ..| ..| |_|";
 
 			var printer = new LcdDigitsPrinter();
 
