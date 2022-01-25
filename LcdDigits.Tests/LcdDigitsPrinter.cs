@@ -1,10 +1,91 @@
-﻿namespace LcdDigits.Tests
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace LcdDigits.Tests
 {
 	public class LcdDigitsPrinter : ILcdDigitsPrinter
 	{
+		private readonly string _hyphenSign;
+		private Dictionary<int, string> _digitsDictionary;
+		private Dictionary<int, string[]> _digitsDictionary2;
+
+		public LcdDigitsPrinter()
+		{
+			_hyphenSign = @"...
+._.
+...";
+			InitializeDigitsDictionary();
+		}
+
 		public string Print(int number)
 		{
-			throw new System.NotImplementedException();
+			var negative = false;
+
+			if (number < 0)
+			{
+				negative = true;
+				number = -number;
+			}
+
+			var listOfNumbers = new List<string[]>();
+
+			while (number > 0)
+			{
+				var digit = number % 10;
+				listOfNumbers.Add(_digitsDictionary2[digit]);
+				number /= 10;
+			}
+
+			var sb = new StringBuilder();
+
+			for (int i = 0; i < 3; i++)
+			{
+				for (int j = listOfNumbers.Count - 1; j >= 0; j--)
+				{
+					sb.Append(listOfNumbers[j][i]);
+
+					if (j != 0)
+					{
+						sb.Append(' ');
+					}
+				}
+
+				if (i != 2)
+				{
+					sb.AppendLine();
+				}
+			}
+
+			var result = sb.ToString();
+
+			Console.WriteLine(result);
+
+			return result;
+		}
+
+		private void InitializeDigitsDictionary()
+		{
+			_digitsDictionary2 = new Dictionary<int, string[]>()
+			{
+				[0] = new string[] {
+					"._.",
+					"|.|",
+					"|_|"
+				},
+				[1] = new string[]
+				{
+					"...",
+					"..|",
+					"..|",
+				},
+				[9] = new string[]
+				{
+					"._.",
+					"|_|",
+					"..|"
+				}
+			};
 		}
 	}
 }
