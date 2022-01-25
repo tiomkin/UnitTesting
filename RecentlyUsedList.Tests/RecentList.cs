@@ -6,7 +6,7 @@ namespace RecentlyUsedList
 {
 	public class RecentList : IRecentList
 	{
-		private List<string> _recentlyUsedList;
+		private readonly List<string> _recentlyUsedList;
 		private static int _maxCapacity = 5;
 
 		public RecentList() : this(_maxCapacity)
@@ -35,7 +35,7 @@ namespace RecentlyUsedList
 		{
 			if (_recentlyUsedList.Count == _maxCapacity)
 			{
-				DropMostLeastItemAndRewriteList(value);
+				_recentlyUsedList.RemoveAt(_maxCapacity - 1);
 			}
 
 			if (string.IsNullOrEmpty(value))
@@ -45,7 +45,7 @@ namespace RecentlyUsedList
 
 			if (!_recentlyUsedList.Contains(value))
 			{
-				_recentlyUsedList.Add(value);
+				_recentlyUsedList.Insert(0, value);
 			}
 		}
 
