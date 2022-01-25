@@ -2,6 +2,6 @@
 {
 	public interface IPrinter
 	{
-		void Print(int number);
+		string Print(int number);
 	}
 }
