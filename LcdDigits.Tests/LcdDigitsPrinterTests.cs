@@ -21,11 +21,10 @@ namespace LcdDigits.Tests
 		}
 
 		[Fact]
-		public void Print_Zero_PrintWithoutHyphen()
+		public void Print_Zero_PrintZero()
 		{
 			var number = 0;
-			var expected = @"
-._.
+			var expected = @"._.
 |.|
 |_|";
 
