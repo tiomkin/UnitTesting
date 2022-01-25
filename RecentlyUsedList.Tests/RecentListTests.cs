@@ -73,6 +73,18 @@ namespace RecentlyUsedList
 		}
 
 		[Fact]
+		public void Add_ValueAdded_FirstAddedShouldBeLastInList()
+		{
+			var list = new RecentList();
+
+			list.Add("one");
+			list.Add("two");
+
+			Assert.Equal("one", list.LookUpByIndex(1));
+			Assert.Equal(2, list.Count());
+		}
+
+		[Fact]
 		public void LookUpByIndex_WrongIndex_Exception()
 		{
 			var list = new RecentList() { "one", "two", "three" };
