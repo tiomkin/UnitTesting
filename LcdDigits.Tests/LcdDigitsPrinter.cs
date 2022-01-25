@@ -6,15 +6,17 @@ namespace LcdDigits.Tests
 {
 	public class LcdDigitsPrinter : ILcdDigitsPrinter
 	{
-		private readonly string _hyphenSign;
-		private Dictionary<int, string> _digitsDictionary;
-		private Dictionary<int, string[]> _digitsDictionary2;
+		private readonly string[] _hyphenSign;
+		private Dictionary<int, string[]> _digitsDictionary;
 
 		public LcdDigitsPrinter()
 		{
-			_hyphenSign = @"...
-._.
-...";
+			_hyphenSign = new[]
+			{
+				"...",
+				"._.",
+				"..."
+			};
 			InitializeDigitsDictionary();
 		}
 
@@ -33,8 +35,13 @@ namespace LcdDigits.Tests
 			while (number > 0)
 			{
 				var digit = number % 10;
-				listOfNumbers.Add(_digitsDictionary2[digit]);
+				listOfNumbers.Add(_digitsDictionary[digit]);
 				number /= 10;
+			}
+
+			if (negative)
+			{
+				listOfNumbers.Add(_hyphenSign);
 			}
 
 			var sb = new StringBuilder();
@@ -66,7 +73,7 @@ namespace LcdDigits.Tests
 
 		private void InitializeDigitsDictionary()
 		{
-			_digitsDictionary2 = new Dictionary<int, string[]>()
+			_digitsDictionary = new Dictionary<int, string[]>()
 			{
 				[0] = new string[] {
 					"._.",
