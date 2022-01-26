@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
 
-    <RootNamespace>RecentlyUsedList</RootNamespace>
+    <RootNamespace>LeapYear</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RecentlyUsedList\RecentlyUsedList.csproj" />
+    <ProjectReference Include="..\LeapYearChecker\LeapYearChecker.csproj" />
   </ItemGroup>
 
 </Project>
