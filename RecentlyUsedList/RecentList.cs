@@ -33,14 +33,15 @@ namespace RecentlyUsedList
 
 		public void Add(string value)
 		{
-			if (_recentlyUsedList.Count == _maxCapacity)
-			{
-				_recentlyUsedList.RemoveAt(_maxCapacity - 1);
-			}
 
 			if (string.IsNullOrEmpty(value))
 			{
 				return;
+			}
+
+			if (_recentlyUsedList.Count == _maxCapacity)
+			{
+				_recentlyUsedList.RemoveAt(_maxCapacity - 1);
 			}
 
 			if (!_recentlyUsedList.Contains(value))
@@ -57,16 +58,6 @@ namespace RecentlyUsedList
 			}
 
 			return _recentlyUsedList[index];
-		}
-
-		private void DropMostLeastItemAndRewriteList(string value)
-		{
-			for (int i = 0; i < _maxCapacity - 1; i++)
-			{
-				_recentlyUsedList[i] = _recentlyUsedList[i + 1];
-			}
-
-			_recentlyUsedList[^1] = value;
 		}
 	}
 }
